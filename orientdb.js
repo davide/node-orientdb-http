@@ -18,7 +18,9 @@ var Connection = Base.sub('Connection', {
     this._request = request.defaults({
       jar: this.j,
       json: true,
-      auth: { user: this.user, pass: this.password }
+      auth: { user: this.user, pass: this.password },
+      pool: {maxSockets: 100},
+      timeout: 360000
     });
 
     var methods = ['post', 'get', 'put', 'delete'];
